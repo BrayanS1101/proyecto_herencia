@@ -64,7 +64,7 @@ class VentanaFactura(QWidget):
         # Total
         self.total_label = QLabel("Total: $0.00")
 
-        # Agregar todos los layouts
+
         layout.addLayout(cliente_layout)
         layout.addWidget(self.info_cliente)
         layout.addLayout(productos_layout)
@@ -155,7 +155,7 @@ class VentanaFactura(QWidget):
                 QMessageBox.information(
                     self,
                     "Éxito",
-                    f"Factura #{factura.numero_factura} creada exitosamente\n"
+                    f"Factura #{factura.numero} creada exitosamente\n"
                     f"Total: ${factura.valor_total:.2f}"
                 )
                 self.limpiar_todo()

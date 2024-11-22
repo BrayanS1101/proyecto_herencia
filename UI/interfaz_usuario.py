@@ -109,7 +109,7 @@ class VentanaUsuario(QWidget):
                 row = self.tabla_facturas.rowCount()
                 self.tabla_facturas.insertRow(row)
                 self.tabla_facturas.setItem(row, 0,
-                                            QTableWidgetItem(str(factura.numero_factura)))
+                                            QTableWidgetItem(str(factura.numero)))
                 self.tabla_facturas.setItem(row, 1,
                                             QTableWidgetItem(factura.fecha.strftime("%Y-%m-%d %H:%M")))
                 self.tabla_facturas.setItem(row, 2,
