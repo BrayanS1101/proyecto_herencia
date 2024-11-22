@@ -11,7 +11,7 @@ class VentanaUsuario(QWidget):
         self.setup_ui()
 
     def setup_ui(self):
-        self.setWindowTitle("Gestión de Usuarios")
+        self.setWindowTitle("Gestion para los usuarios")
         layout = QVBoxLayout()
 
 
@@ -19,7 +19,7 @@ class VentanaUsuario(QWidget):
 
 
         cedula_layout = QHBoxLayout()
-        cedula_label = QLabel("Cédula:")
+        cedula_label = QLabel("Cedula:")
         self.cedula_input = QLineEdit()
         cedula_layout.addWidget(cedula_label)
         cedula_layout.addWidget(self.cedula_input)
@@ -43,12 +43,11 @@ class VentanaUsuario(QWidget):
         crear_btn.clicked.connect(self.crear_usuario)
         buscar_btn = QPushButton("Buscar Usuario")
         buscar_btn.clicked.connect(self.buscar_usuario)
-        limpiar_btn = QPushButton("Limpiar")
-        limpiar_btn.clicked.connect(self.limpiar_campos)
+
 
         botones_layout.addWidget(crear_btn)
         botones_layout.addWidget(buscar_btn)
-        botones_layout.addWidget(limpiar_btn)
+
 
         self.tabla_facturas = QTableWidget()
         self.tabla_facturas.setColumnCount(3)
@@ -76,7 +75,7 @@ class VentanaUsuario(QWidget):
         if cliente:
             QMessageBox.information(self, "Éxito",
                                     f"Cliente creado exitosamente:\n{cliente}")
-            self.limpiar_campos()
+
         else:
             QMessageBox.warning(self, "Error",
                                 "Ya existe un cliente con esa cédula")
@@ -113,9 +112,3 @@ class VentanaUsuario(QWidget):
                                             QTableWidgetItem(f"${factura.valor_total:.2f}"))
         else:
             self.tabla_facturas.hide()
-
-    def limpiar_campos(self):
-        self.cedula_input.clear()
-        self.nombre_input.clear()
-        self.apellido_input.clear()
-        self.tabla_facturas.hide()

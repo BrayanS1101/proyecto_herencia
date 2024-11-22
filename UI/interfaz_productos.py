@@ -47,11 +47,10 @@ class VentanaProductos(QWidget):
         botones_layout = QHBoxLayout()
         agregar_btn = QPushButton("Agregar Producto")
         agregar_btn.clicked.connect(self.agregar_producto)
-        limpiar_btn = QPushButton("Limpiar")
-        limpiar_btn.clicked.connect(self.limpiar_campos)
+
 
         botones_layout.addWidget(agregar_btn)
-        botones_layout.addWidget(limpiar_btn)
+
 
         # Tabla de productos
         self.tabla_productos = QTableWidget()
@@ -82,7 +81,7 @@ class VentanaProductos(QWidget):
                                 f"Nombre: {nombre}\n"
                                 f"Cantidad: {cantidad}\n"
                                 f"Precio: ${precio:.2f}")
-        self.limpiar_campos()
+
         self.actualizar_tabla()
 
     def actualizar_tabla(self):
@@ -96,7 +95,3 @@ class VentanaProductos(QWidget):
             self.tabla_productos.setItem(row, 2,
                                          QTableWidgetItem(f"${datos['precio']:.2f}"))
 
-    def limpiar_campos(self):
-        self.nombre_input.clear()
-        self.cantidad_input.setValue(1)
-        self.precio_input.setValue(0.01)

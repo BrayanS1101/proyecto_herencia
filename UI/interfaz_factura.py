@@ -59,11 +59,9 @@ class VentanaFactura(QWidget):
         botones_layout = QHBoxLayout()
         crear_factura_btn = QPushButton("Crear Factura")
         crear_factura_btn.clicked.connect(self.crear_factura)
-        cancelar_btn = QPushButton("Cancelar")
-        cancelar_btn.clicked.connect(self.limpiar_todo)
+
 
         botones_layout.addWidget(crear_factura_btn)
-        botones_layout.addWidget(cancelar_btn)
 
         self.total_label = QLabel("Total: 0")
 
@@ -161,16 +159,9 @@ class VentanaFactura(QWidget):
                     f"Factura #{factura.numero} creada\n"
                     f"Total: ${factura.valor_total:.2f}"
                 )
-                self.limpiar_todo()
+
             else:
                 QMessageBox.warning(self, "Error")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Error al crear la factura: {str(e)}")
 
-    def limpiar_todo(self):
-        self.cedula_input.clear()
-        self.info_cliente.setText("")
-        self.cantidad_spin.setValue(1)
-        self.productos_seleccionados.clear()
-        self.cliente_actual = None
-        self.actualizar_tabla_productos()
