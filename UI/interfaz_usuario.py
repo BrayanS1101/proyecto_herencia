@@ -14,31 +14,30 @@ class VentanaUsuario(QWidget):
         self.setWindowTitle("Gestión de Usuarios")
         layout = QVBoxLayout()
 
-        # Formulario de creación
+
         form_layout = QVBoxLayout()
 
-        # Cédula
+
         cedula_layout = QHBoxLayout()
         cedula_label = QLabel("Cédula:")
         self.cedula_input = QLineEdit()
         cedula_layout.addWidget(cedula_label)
         cedula_layout.addWidget(self.cedula_input)
 
-        # Nombre
+
         nombre_layout = QHBoxLayout()
         nombre_label = QLabel("Nombre:")
         self.nombre_input = QLineEdit()
         nombre_layout.addWidget(nombre_label)
         nombre_layout.addWidget(self.nombre_input)
 
-        # Apellido
+
         apellido_layout = QHBoxLayout()
         apellido_label = QLabel("Apellido:")
         self.apellido_input = QLineEdit()
         apellido_layout.addWidget(apellido_label)
         apellido_layout.addWidget(self.apellido_input)
 
-        # Botones
         botones_layout = QHBoxLayout()
         crear_btn = QPushButton("Crear Usuario")
         crear_btn.clicked.connect(self.crear_usuario)
@@ -51,13 +50,11 @@ class VentanaUsuario(QWidget):
         botones_layout.addWidget(buscar_btn)
         botones_layout.addWidget(limpiar_btn)
 
-        # Tabla de facturas
         self.tabla_facturas = QTableWidget()
         self.tabla_facturas.setColumnCount(3)
         self.tabla_facturas.setHorizontalHeaderLabels(["Número", "Fecha", "Valor Total"])
         self.tabla_facturas.hide()
 
-        # Agregar todos los layouts al layout principal
         layout.addLayout(cedula_layout)
         layout.addLayout(nombre_layout)
         layout.addLayout(apellido_layout)
